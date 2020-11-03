@@ -1,0 +1,25 @@
+{% extends 'basic.html' %}
+{% block title %} Contact {% endblock  %}
+{% block css %}
+.form-control{
+    width: 70%;
+}
+{% endblock  %}
+{% block body %}
+<div class="container my-2">
+<form method="POST" actione="/contact">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="eg.abc@gmail.com">
+    <label for="phone">Contact No:</label>
+    <input type="tel" class="form-control" id="phone" name="phone" placeholder="eg.9812345678">
+    <label for="content">Describe Issue Which You are facing:</label>
+    <textarea class="form-control" name="content" id="content" name="content" cols="30" rows="5"></textarea>
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock  %}

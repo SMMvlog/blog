@@ -1,0 +1,20 @@
+{% extends 'basic.html' %}
+{% block title %} Blog {% endblock  %}
+
+{% block body %}
+{% for i in post %}
+<div class="container">
+<div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Article by {{i.author}}</strong>
+          <h3 class="mb-0"><a class="text-dark" href="/smm/{{i.slug}}">{{i.title}}</a></h3>
+          <div class="mb-1 text-muted">{{i.timeStamp}}</div>
+          <p class="card-text mb-auto">{{i.content | truncatechars:500 }} </p>
+          <div class="my-2">
+            	<a href="/smm/{{i.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+            </div>
+
+        </div>
+        </div>
+        {% endfor %}
+
+{% endblock  %}
